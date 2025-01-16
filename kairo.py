@@ -36,3 +36,4 @@ def Xnor(x: int, y: int):
         return 1
     else:
         return 0
+    
