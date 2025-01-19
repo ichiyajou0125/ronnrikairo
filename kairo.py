@@ -37,3 +37,38 @@ def Xnor(x: int, y: int):
     else:
         return 0
     
+def Mux(x: int, y: int,sel: int):
+    Nsel = Not(sel)
+    a = And(x,Nsel)
+    b = And(y,sel)
+    return Or(a,b)
+
+def Dmux(x: int, sel: int):
+    Nsel = Not(sel)
+    a = And(x,Nsel)
+    b = And(x,sel)
+    return a,b
+
+def Not16(In: int, out: int):
+    for i in range(len(In)):
+        out[i] = Not(In[i])
+    
+    return out
+
+def And16(In_A: int, In_B: int, out: int):
+    for i in range(len(In_A)):
+        out[i] = And(In_A[i],In_B[i])
+    
+    return out
+
+def Or16(In_A: int, In_B: int, out: int):
+    for i in range(len(In_A)):
+        out[i] = Or(In_A[i],In_B[i])
+    
+    return out
+
+def Mux16(In_A: int, In_B: int, sel: int, out: int):
+    for i in range(len(In_A)):
+        out[i] = Mux(In_A[i],In_B[i],sel)
+    
+    return out
